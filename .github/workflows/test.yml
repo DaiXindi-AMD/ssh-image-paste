@@ -1,0 +1,24 @@
+name: Windows tests
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate configuration
+        shell: powershell
+        run: .\Test-Config.ps1
+      - name: Validate SSH output and native argument transport
+        shell: powershell
+        run: .\Test-Bridge.ps1
+      - name: Compile native helper without registering a hotkey
+        shell: powershell
+        run: .\Bridge.ps1 -Check

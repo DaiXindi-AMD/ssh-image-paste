@@ -1,0 +1,15 @@
+# Local destinations, runtime state and clipboard content must never be published.
+config.json
+state.json
+stop.signal
+*.log
+*.png
+*.jpg
+*.jpeg
+*.bmp
+*.exe
+*.dll
+*.zip
+*.tmp
+.DS_Store
+Thumbs.db
